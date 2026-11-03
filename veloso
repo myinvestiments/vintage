@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veloso Vintage | Relógios Clássicos e Colecionáveis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vintage: {
+                            dark: '#121212',
+                            card: '#1a1a1a',
+                            gold: '#d4af37',
+                            goldHover: '#c5a028',
+                            grayText: '#a3a3a3'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #e5e5e5;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-vintage-dark min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-vintage-dark/95 backdrop-blur border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- Logo inserida aqui (Certifique-se de salvar a imagem como logo.png na mesma pasta) -->
+                <img src="logo.png" alt="Veloso Vintage Logo" class="h-12 w-auto object-contain">
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#catalogo" class="text-neutral-300 hover:text-vintage-gold transition">Catálogo</a>
+                <a href="#sobre" class="text-neutral-300 hover:text-vintage-gold transition">Sobre</a>
+                <a href="#contato" class="text-neutral-300 hover:text-vintage-gold transition">Contato</a>
+            </nav>
+            <div>
+                <a href="https://wa.me/5519992184983?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20ver%20o%20catálogo%20completo%20de%20relógios." target="_blank" class="bg-vintage-gold text-vintage-dark font-semibold px-4 py-2.5 rounded-md hover:bg-vintage-goldHover transition flex items-center space-x-2 text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Falar no WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-neutral-900 border-b border-neutral-800 py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-vintage-gold text-xs sm:text-sm font-semibold tracking-widest uppercase mb-3 block">Relógios • História • Estilo[span_1](start_span)[span_1](end_span)</span>
+            <h1 class="text-3xl sm:text-5xl font-bold text-white mb-6 tracking-tight">O Tempo em Sua Forma Mais Pura</h1>
+            <p class="max-w-2xl mx-auto text-neutral-400 text-sm sm:text-base mb-8">
+                Peças selecionadas, revisadas e com história. Encontre o relógio vintage perfeito para a sua coleção ou para marcar momentos inesquecíveis.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#catalogo" class="bg-vintage-gold text-vintage-dark font-semibold px-6 py-3 rounded-md hover:bg-vintage-goldHover transition text-sm">
+                    Ver Relógios Disponíveis
+                </a>
+                <a href="https://wa.me/5519992184983?text=Olá!%20Gostaria%20de%20atendimento%20personalizado." target="_blank" class="border border-neutral-700 text-white font-semibold px-6 py-3 rounded-md hover:border-vintage-gold hover:text-vintage-gold transition text-sm">
+                    Atendimento Personalizado
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Relógios -->
+    <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow w-full">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 border-b border-neutral-800 pb-6">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Catálogo Atual</h2>
+                <p class="text-neutral-400 text-sm mt-1">Clique em um relógio para ver mais detalhes ou negociar diretamente.</p>
+            </div>
+            <!-- Filtros rápidos por marca -->
+            <div class="mt-4 md:mt-0 flex gap-2 flex-wrap">
+                <button onclick="filtrarMarca('todos')" class="filter-btn bg-vintage-gold text-vintage-dark px-3 py-1.5 rounded text-xs font-semibold transition">Todos</button>
+                <button onclick="filtrarMarca('Orient')" class="filter-btn bg-neutral-800 text-neutral-300 px-3 py-1.5 rounded text-xs font-semibold hover:bg-neutral-700 transition">Orient</button>
+                <button onclick="filtrarMarca('Seiko')" class="filter-btn bg-neutral-800 text-neutral-300 px-3 py-1.5 rounded text-xs font-semibold hover:bg-neutral-700 transition">Seiko</button>
+                <button onclick="filtrarMarca('Citizen')" class="filter-btn bg-neutral-800 text-neutral-300 px-3 py-1.5 rounded text-xs font-semibold hover:bg-neutral-700 transition">Citizen</button>
+                <button onclick="filtrarMarca('Technos')" class="filter-btn bg-neutral-800 text-neutral-300 px-3 py-1.5 rounded text-xs font-semibold hover:bg-neutral-700 transition">Technos</button>
+            </div>
+        </div>
+
+        <!-- Grade de Produtos (Exemplos editáveis) -->
+        <div id="grid-produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Item 1 -->
+            <div class="produto-card bg-vintage-card border border-neutral-800 rounded-lg overflow-hidden group hover:border-vintage-gold/50 transition duration-300" data-marca="Orient">
+                <div class="relative h-64 overflow-hidden bg-neutral-900">
+                    <span class="absolute top-3 left-3 bg-vintage-gold text-vintage-dark text-xs font-bold px-2.5 py-1 rounded z-10">Disponível</span>
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Orient Vintage Automatic" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5">
+                    <span class="text-vintage-gold text-xs font-semibold tracking-wider uppercase">Orient</span>
+                    <h3 class="text-lg font-bold text-white mt-1 mb-2">Orient Automatic Vintage 1970</h3>
+                    <p class="text-neutral-400 text-xs line-clamp-2 mb-4">Movimento automático original revisado, mostrador sunburst impecável e pulseira de aço inoxidável.</p>
+                    <div class="flex items-center justify-between pt-3 border-t border-neutral-800">
+                        <span class="text-white font-bold text-base">R$ 850,00</span>
+                        <button onclick="abrirModal('Orient Automatic Vintage 1970', 'R$ 850,00', 'Movimento automático original revisado, mostrador sunburst impecável e pulseira de aço inoxidável. Caixa em excelente estado de conservação.', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80')" class="bg-neutral-800 text-white text-xs px-3 py-2 rounded hover:bg-vintage-gold hover:text-vintage-dark transition font-semibold">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="produto-card bg-vintage-card border border-neutral-800 rounded-lg overflow-hidden group hover:border-vintage-gold/50 transition duration-300" data-marca="Seiko">
+                <div class="relative h-64 overflow-hidden bg-neutral-900">
+                    <span class="absolute top-3 left-3 bg-vintage-gold text-vintage-dark text-xs font-bold px-2.5 py-1 rounded z-10">Disponível</span>
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Seiko 5 Classic" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5">
+                    <span class="text-vintage-gold text-xs font-semibold tracking-wider uppercase">Seiko</span>
+                    <h3 class="text-lg font-bold text-white mt-1 mb-2">Seiko 5 Automatic Day-Date</h3>
+                    <p class="text-neutral-400 text-xs line-clamp-2 mb-4">Clássico atemporal dos anos 80, calendário duplo em dia da semana/mês, funcionamento perfeito.</p>
+                    <div class="flex items-center justify-between pt-3 border-t border-neutral-800">
+                        <span class="text-white font-bold text-base">R$ 980,00</span>
+                        <button onclick="abrirModal('Seiko 5 Automatic Day-Date', 'R$ 980,00', 'Clássico atemporal dos anos 80, calendário duplo em dia da semana/mês, funcionamento perfeito. Vidro original facetado.', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80')" class="bg-neutral-800 text-white text-xs px-3 py-2 rounded hover:bg-vintage-gold hover:text-vintage-dark transition font-semibold">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="produto-card bg-vintage-card border border-neutral-800 rounded-lg overflow-hidden group hover:border-vintage-gold/50 transition duration-300" data-marca="Citizen">
+                <div class="relative h-64 overflow-hidden bg-neutral-900">
+                    <span class="absolute top-3 left-3 bg-vintage-gold text-vintage-dark text-xs font-bold px-2.5 py-1 rounded z-10">Disponível</span>
+                    <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=600&q=80" alt="Citizen Vintage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5">
+                    <span class="text-vintage-gold text-xs font-semibold tracking-wider uppercase">Citizen</span>
+                    <h3 class="text-lg font-bold text-white mt-1 mb-2">Citizen Crystal Seven</h3>
+                    <p class="text-neutral-400 text-xs line-clamp-2 mb-4">Design marcante de época, pulseira original assinada, máquina robusta testada e revisada.</p>
+                    <div class="flex items-center justify-between pt-3 border-t border-neutral-800">
+                        <span class="text-white font-bold text-base">R$ 750,00</span>
+                        <button onclick="abrirModal('Citizen Crystal Seven', 'R$ 750,00', 'Design marcante de época, pulseira original assinada, máquina robusta testada e revisada com garantia.', 'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=600&q=80')" class="bg-neutral-800 text-white text-xs px-3 py-2 rounded hover:bg-vintage-gold hover:text-vintage-dark transition font-semibold">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Sobre / Diferenciais -->
+    <section id="sobre" class="bg-neutral-900 border-t border-neutral-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <i class="fa-solid fa-certificate text-vintage-gold text-3xl mb-4"></i>
+                <h4 class="text-white font-bold text-lg mb-2">Peças Autênticas</h4>
+                <p class="text-neutral-400 text-sm">Curadoria especializada focada em resgatar a originalidade e a história de grandes marcas relíquias do mercado.</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-screwdriver-wrench text-vintage-gold text-3xl mb-4"></i>
+                <h4 class="text-white font-bold text-lg mb-2">Revisados e Testados</h4>
+                <p class="text-neutral-400 text-sm">Todos os relógios passam por rigorosos testes de funcionamento, precisão e manutenção preventiva.</p>
+            </div>
+            <div>
+                <i class="fa-brands fa-whatsapp text-vintage-gold text-3xl mb-4"></i>
+                <h4 class="text-white font-bold text-lg mb-2">Negociação Direta</h4>
+                <p class="text-neutral-400 text-sm">Tire dúvidas, peça fotos adicionais ou feche negócio de forma rápida, segura e humanizada via WhatsApp.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato" class="bg-vintage-dark border-t border-neutral-800 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center space-x-3">
+                <img src="logo.png" alt="Veloso Vintage Logo" class="h-10 w-auto object-contain">
+                <div>
+                    <p class="text-neutral-500 text-xs mt-1">Resgatando memórias através de relógios clássicos • Desde 2024[span_2](start_span)[span_2](end_span)</p>
+                </div>
+            </div>
+            <div class="flex space-x-6 text-neutral-400">
+                <a href="https://wa.me/5519992184983" target="_blank" class="hover:text-vintage-gold transition text-xl"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="hover:text-vintage-gold transition text-xl"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="text-neutral-600 text-xs">&copy; 2026 Veloso Vintage. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Detalhes -->
+    <div id="modal-produto" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-vintage-card border border-neutral-800 rounded-lg max-w-lg w-full overflow-hidden relative animate-in fade-in zoom-in duration-200">
+            <button onclick="fecharModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-white text-xl z-10 bg-neutral-900/80 w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="h-64 sm:h-72 overflow-hidden bg-neutral-900">
+                <img id="modal-img" src="" alt="Relógio" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <h3 id="modal-titulo" class="text-xl font-bold text-white mb-2"></h3>
+                <p id="modal-preco" class="text-vintage-gold font-bold text-lg mb-4"></p>
+                <p id="modal-descricao" class="text-neutral-300 text-sm mb-6"></p>
+                <a id="modal-whatsapp-btn" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-md transition flex items-center justify-center space-x-2 text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Tenho interesse (Negociar no WhatsApp)</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Interatividade -->
+    <script>
+        function abrirModal(titulo, preco, descricao, imagem) {
+            document.getElementById('modal-titulo').innerText = titulo;
+            document.getElementById('modal-preco').innerText = preco;
+            document.getElementById('modal-descricao').innerText = descricao;
+            document.getElementById('modal-img').src = imagem;
+            
+            const mensagem = encodeURIComponent(`Olá! Tenho interesse no relógio *${titulo}* anunciado por *${preco}* no site da Veloso Vintage.`);
+            document.getElementById('modal-whatsapp-btn').href = `https://wa.me/5500000000000?text=${mensagem}`;
+            
+            document.getElementById('modal-produto').classList.remove('hidden');
+        }
+
+        function fecharModal() {
+            document.getElementById('modal-produto').classList.add('hidden');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal-produto');
+            if (event.target == modal) {
+                fecharModal();
+            }
+        }
+
+        function filtrarMarca(marca) {
+            const cards = document.querySelectorAll('.produto-card');
+            const botoes = document.querySelectorAll('.filter-btn');
+
+            botoes.forEach(btn => {
+                if(btn.innerText.toLowerCase() === marca.toLowerCase() || (marca === 'todos' && btn.innerText === 'Todos')) {
+                    btn.classList.remove('bg-neutral-800', 'text-neutral-300');
+                    btn.classList.add('bg-vintage-gold', 'text-vintage-dark');
+                } else {
+                    btn.classList.remove('bg-vintage-gold', 'text-vintage-dark');
+                    btn.classList.add('bg-neutral-800', 'text-neutral-300');
+                }
+            });
+
+            cards.forEach(card => {
+                if(marca === 'todos' || card.getAttribute('data-marca') === marca) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
